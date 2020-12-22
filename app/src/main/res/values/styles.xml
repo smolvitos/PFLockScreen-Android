@@ -1,0 +1,62 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
+        <item name="pf_title">@style/MyLockTitleStyle</item>
+        <item name="pf_hint">@style/MyLockHintStyle</item>
+    </style>
+
+    <!--
+    <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+    <item name="pf_fingerprint_button">@style/MyLockScreenFingerprintButtonStyle</item>
+    <item name="pf_delete_button">@style/MyLockScreenDeleteButtonStyle</item>
+    <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+    <item name="pf_code_view">@style/MyLockScreenCodeStyle</item> -->
+
+    <style name="MyLockScreenStyle">
+        <item name="android:background">@drawable/screen_background</item>
+    </style>
+
+    <style name="MyLockScreenButtonStyle">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:foreground">@drawable/key_foreground</item>
+    </style>
+
+    <style name="MyLockScreenFingerprintButtonStyle">
+        <item name="android:src">@drawable/fingerprint_lockscreen</item>
+    </style>
+
+    <style name="MyLockScreenDeleteButtonStyle">
+        <item name="android:src">@drawable/delete_lockscreen</item>
+    </style>
+
+    <style name="MyLockScreenCodeStyle">
+        <item name="android:button">@drawable/code_selector</item>
+    </style>
+
+    <style name="MyLockNextButtonStyle">
+        <item name="android:textColor">#9FFF</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+    <style name="MyLockTitleStyle">
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <style name="MyLockHintStyle">
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+
+
+</resources>
