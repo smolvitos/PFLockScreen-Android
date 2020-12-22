@@ -63,7 +63,10 @@ public class PFFingerprintPinCodeHelper implements IPFPinCodeHelper {
     public void checkPin(Context context, String encodedPin, String encodedPinWarning, String pin, PFPinCodeHelperCallback<Integer> callback) {
         try {
             final String pinCode = pfSecurityUtils.decode(PIN_ALIAS, encodedPin);
-            final String pinCodeWarning = pfSecurityUtils.decode(PIN_ALIAS, encodedPinWarning);
+            String pinCodeWarning = "";
+            if (encodedPinWarning != "") {
+                pinCodeWarning = pfSecurityUtils.decode(PIN_ALIAS, encodedPinWarning);
+            }
             if (callback != null) {
                 if (pin.equals(pinCode)) {
                     callback.onResult(new PFResult(1));
@@ -80,7 +83,6 @@ public class PFFingerprintPinCodeHelper implements IPFPinCodeHelper {
             }
         }
     }
-
 
     private boolean isFingerPrintAvailable(Context context) {
         return FingerprintManagerCompat.from(context).isHardwareDetected();
