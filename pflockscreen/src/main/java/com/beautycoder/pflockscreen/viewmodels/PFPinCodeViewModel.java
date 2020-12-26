@@ -28,12 +28,13 @@ public class PFPinCodeViewModel extends ViewModel {
         return liveData;
     }
 
-    public LiveData<PFResult<Integer>> checkPin(Context context, String encodedPin, String encodedPinWarning, String pin) {
+    public LiveData<PFResult<Integer>> checkPin(Context context, String encodedPin, String encodedPinWarning, String encodedPinDelete, String pin) {
         final PFLiveData<PFResult<Integer>> liveData = new PFLiveData<>();
         PFSecurityManager.getInstance().getPinCodeHelper().checkPin(
                 context,
                 encodedPin,
                 encodedPinWarning,
+                encodedPinDelete,
                 pin,
                 new PFPinCodeHelperCallback<Integer>() {
                     @Override

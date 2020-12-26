@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 @Override
+                public void onCodeDeleteInputSuccessful() {
+                    Toast.makeText(MainActivity.this, "Code delete successful", Toast.LENGTH_SHORT).show();
+                    showMainFragment();
+                }
+
+                @Override
                 public void onBiometricAuthSuccessful() {
                     Toast.makeText(MainActivity.this, "Biometric authentication successful", Toast.LENGTH_SHORT).show();
                     showMainFragment();

@@ -26,7 +26,7 @@ public interface IPFPinCodeHelper {
      * @throws PFSecurityException  throw exception if something went wrong.
      */
     //void checkPin(Context context, String encodedPin, String pin, PFPinCodeHelperCallback<Boolean> callback);
-    void checkPin(Context context, String encodedPin, String encodedPinWarning, String pin, PFPinCodeHelperCallback<Integer> callback);
+    void checkPin(Context context, String encodedPin, String encodedPinWarning, String encodedPinDelete, String pin, PFPinCodeHelperCallback<Integer> callback);
 
     /**
      * Delete pin code encryption key.

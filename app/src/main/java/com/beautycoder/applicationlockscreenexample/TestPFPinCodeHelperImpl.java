@@ -22,6 +22,7 @@ public class TestPFPinCodeHelperImpl implements IPFPinCodeHelper {
             Context context,
             String encodedPin,
             String encodedPinWarning,
+            String encodedPinDelete,
             String pin,
             PFPinCodeHelperCallback<Integer> callback
     ) {

@@ -60,18 +60,24 @@ public class PFFingerprintPinCodeHelper implements IPFPinCodeHelper {
      * @throws PFSecurityException  throw exception if something went wrong.
      */
     @Override
-    public void checkPin(Context context, String encodedPin, String encodedPinWarning, String pin, PFPinCodeHelperCallback<Integer> callback) {
+    public void checkPin(Context context, String encodedPin, String encodedPinWarning,  String encodedPinDelete, String pin, PFPinCodeHelperCallback<Integer> callback) {
         try {
             final String pinCode = pfSecurityUtils.decode(PIN_ALIAS, encodedPin);
             String pinCodeWarning = "";
+            String pinCodeDelete = "";
             if (encodedPinWarning != "") {
                 pinCodeWarning = pfSecurityUtils.decode(PIN_ALIAS, encodedPinWarning);
+            }
+            if (encodedPinDelete != "") {
+                pinCodeDelete = pfSecurityUtils.decode(PIN_ALIAS, encodedPinDelete);
             }
             if (callback != null) {
                 if (pin.equals(pinCode)) {
                     callback.onResult(new PFResult(1));
                 } else if (pin.equals(pinCodeWarning)) {
                     callback.onResult(new PFResult(2));
+                } else if (pin.equals(pinCodeDelete)) {
+                    callback.onResult(new PFResult(3));
                 } else {
                     callback.onResult(new PFResult(0));
                 }

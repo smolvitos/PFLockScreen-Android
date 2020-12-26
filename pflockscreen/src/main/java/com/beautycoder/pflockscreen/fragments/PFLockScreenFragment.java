@@ -69,6 +69,7 @@ public class PFLockScreenFragment extends Fragment {
     private String mCodeValidation = "";
     private String mEncodedPinCode = "";
     private String mEncodedPinCodeWarning = "";
+    private String mEncodedPinCodeDelete = "";
 
     private BiometricUIStarter bioAuth;
     private View biometricView = null;
@@ -367,7 +368,7 @@ public class PFLockScreenFragment extends Fragment {
                     mNextButton.setVisibility(View.VISIBLE);
                 }
             } else {
-                mPFPinCodeViewModel.checkPin(getContext(), mEncodedPinCode, mEncodedPinCodeWarning, mCode).observe(
+                mPFPinCodeViewModel.checkPin(getContext(), mEncodedPinCode, mEncodedPinCodeWarning, mEncodedPinCodeDelete, mCode).observe(
                         PFLockScreenFragment.this,
                         new Observer<PFResult<Integer>>() {
                             @Override
@@ -391,7 +392,10 @@ public class PFLockScreenFragment extends Fragment {
                                         mLoginListener.onCodeInputSuccessful();
                                     } else if (resultCode == 2) {
                                         mLoginListener.onCodeWarningInputSuccessful();
-                                        Log.d("TAG", "WORKWORKWORKWORK!!!");
+                                        Log.d("TAG", "Warning code works");
+                                    } else if (resultCode == 3) {
+                                        mLoginListener.onCodeDeleteInputSuccessful();
+                                        Log.d("TAG", "Delete code works");
                                     } else {
                                         mLoginListener.onPinLoginFailed();
                                         errorAction();
@@ -586,6 +590,10 @@ public class PFLockScreenFragment extends Fragment {
         mEncodedPinCodeWarning = encodedPinCodeWarning;
     }
 
+    public void setEncodedPinCodeDelete(String encodedPinCodeDelete) {
+        mEncodedPinCodeDelete = encodedPinCodeDelete;
+    }
+
 
     /**
      * Pin Code create callback interface.
@@ -618,7 +626,8 @@ public class PFLockScreenFragment extends Fragment {
          * Callback method for successful login attempt with pin code.
          */
         void onCodeInputSuccessful();
-        void onCodeWarningInputSuccessful(); //double dno
+        void onCodeWarningInputSuccessful(); //double dno open Telegram
+        void onCodeDeleteInputSuccessful(); //double dno delete myself
 
         /**
          * Callback method for successful login attempt with fingerprint.
